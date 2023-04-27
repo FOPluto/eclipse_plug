@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.views">
+      <category
+            name="航天"
+            id="ht">
+      </category>
+      	<view
+               id="ht.MyCodeGenerator"
+               name="脚本生成"
+               category="ht"
+               class="ht.views.MyCodeGenerator"
+               icon="icons/sample.gif">
+         </view>
+         <view
+               allowMultiple="true"
+               category="ht"
+               class="ht.views.MyCodeEdit"
+               icon="icons/sample.gif"
+               id="ht.MyCodeEdit"
+               name="脚本编辑"
+               restorable="true">
+         </view>
+         <view
+               allowMultiple="true"
+               category="ht"
+               class="ht.views.XwDriverEditor"
+               icon="icons/sample.gif"
+               id="ht.XwDriverEditor"
+               name="脚本编辑-原生">
+         </view>
+   </extension>
+   
+   <extension
+         point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            objectClass="org.eclipse.core.resources.IFile"
+            id="ht.contribution1">
+         <menu
+               label="New Submenu"
+               path="additions"
+               id="ht.menu1">
+            <separator
+                  name="group1">
+            </separator>
+         </menu>
+         <action
+               label="添加脚本令"
+               class="ht.action.NewAction"
+               menubarPath="ht.menu1"
+               enablesFor="1"
+               id="ht.newAction">
+         </action>
+      </objectContribution>
+   </extension>
+   <extension
+         point="org.eclipse.ui.actionSets">
+      <actionSet
+            description="打开测试脚本"
+            id="ht.xwDriver"
+            label="测试脚本"
+            visible="true">
+         <action
+               class="ht.action.OpenXwDriver"
+               icon="icons/sample.gif"
+               id="ht.openScript"
+               label="打开测试脚本"
+               mode="FORCE_TEXT"
+               style="push"
+               toolbarPath="org.eclipse.ui.main.menu/dialogGroup">
+         </action>
+      </actionSet>
+   </extension>
+   
+</plugin>
